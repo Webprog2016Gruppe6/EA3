@@ -1,0 +1,162 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Stundenplaner-Grundstruktur</title>
+    <!--Bitte mit Chrome testen. Als Vorlage dient das Wireframe "Ansicht".
+    sobald das Stylesheet eingebunden wird, wird die Ausgabe der Tabelle wie gewünscht
+    angezeigt -->
+    <link rel="stylesheet" href="css/stylesheetgrundstruktur.css">
+    <!-- Einbindung von Jquery & dessen Plugin-->
+    <script src="http://code.jquery.com/jquery-1.12.3.js"></script>
+    <!--https://datatables.net/examples/basic_init/hidden_columns.html
+    DataTables wird implementiert, damit wird die Tabelle u.a. scrollbar und wird um
+    weitere zusätzliche Funktionen erweitert.-->
+    <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js">
+    </script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!--Lightbox für Formularerstellung wird implementiert.-->
+    <script type="text/javascript" src="lightbox.js"></script>
+
+	  <script type="text/javascript" src="javascript/javaScript.js"></script>
+  </head>
+  <body>
+	<nav>
+		<!--Hier wird auf die Startseite verlinkt.-->
+  		<a href="index.html">Home</a> 
+  		<!--Hier wird auf die 1.Setup-Seite verlinkt um einen neuen Stundenplan 
+  		erstellen zu können.-->
+  		<a href="javascript:alert('Aktion folgt');">Stundenplan erstellen</a> 
+  		<!-- Hier wird der eingegebene/erstellte Stundenplan gespeichert.-->
+  		<a href="javascript:alert('Aktion folgt');">Speichern</a>
+		<!-- Hier werden später optionale Symbole für die Menüführung eingefügt.-->
+  		<a href="javascript:alert('Aktion folgt');">Symbole</a> 
+	</nav>
+	<!--Wird dann mittels Javascript und CSS noch optimiert.-->
+	
+    <!--https://datatables.net/examples/basic_init/scroll_xy.html-->
+    <table id="stundenplaner" width="100%">
+    <!--Diese Tabelle stellt das Grundmuster des Stundenplaners da.-->
+        <thead>
+			<tr>
+				<th>Stunde</th> 
+				<th>Montag</th>
+				<th>Dienstag</th>
+				<th>Mittwoch</th>
+				<th>Donnerstag</th>
+				<th>Freitag</th>
+				<th>Samstag</th>
+				<th>Sonntag</th>
+			</tr> 
+		</thead>
+		<tfoot>
+			<tr>
+				<td>Stunde</td> 
+				<td>Montag</td> 
+				<td>Dienstag</td> 
+				<td>Mittwoch</td> 
+				<td>Donnerstag</td> 
+				<td>Freitag</td>
+				<td>Samstag</td>
+				<td>Sonntag</td>
+			</tr>
+		</tfoot>
+		<tbody>
+			<tr>
+				<td>1.</td> 
+				<td></td> 
+				<td></td> 
+				<td></td> 
+				<td></td> 
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>2.</td> 
+				<td></td> 
+				<td></td> 
+				<td></td> 
+				<td></td> 
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>3.</td> 
+				<td></td> 
+				<td></td> 
+				<td></td> 
+				<td></td> 
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>4.</td> 
+				<td></td> 
+				<td></td> 
+				<td></td> 
+				<td></td> 
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>5.</td> 
+				<td></td> 
+				<td></td> 
+				<td></td> 
+				<td></td> 
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>6.</td> 
+				<td></td> 
+				<td></td> 
+				<td></td> 
+				<td></td> 
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>7.</td> 
+				<td></td> 
+				<td></td> 
+				<td></td> 
+				<td></td> 
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>8.</td> 
+				<td></td> 
+				<td></td> 
+				<td></td> 
+				<td></td> 
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+	  </tbody>
+    </table>
+    <!--Im Fußbereich der Webseite werden zusätzliche Informationen mittels einer 
+    Navigation zur Verfügung gestellt.-->
+  <footer>
+    <nav>
+    	<!--Hier wird auf das Impressum verlinkt.-->
+  		<a href="impressum.html">Impressum</a>
+  		<!--Hier wird auf die AGBs verlinkt.-->
+  		<a href="agb.html">AGB</a>
+  		<!--Hier wird auf die Kontaktmöglichkeiten verlinkt.-->
+  		<a href="kontakt.html">Kontakt</a>
+  		<!--Hier wird auf Datenschutzbestimmungen der Webseite verlinkt.-->
+  		<a href="datenschutz.html">Datenschutz</a>
+	</nav>
+  </footer>
+</body>
+</html>

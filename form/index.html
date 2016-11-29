@@ -6,7 +6,7 @@
     <!--Bitte mit Chrome testen. Als Vorlage dient das Wireframe "Ansicht".
     sobald das Stylesheet eingebunden wird, wird die Ausgabe der Tabelle wie gewünscht
     angezeigt -->
-    <link rel="stylesheet" href="css/stylesheetgrundstruktur.css">
+    <link rel="stylesheet" href="formStylesheet.css">
     <!-- Einbindung von Jquery & dessen Plugin-->
     <script src="http://code.jquery.com/jquery-1.12.3.js"></script>
     <!--https://datatables.net/examples/basic_init/hidden_columns.html
@@ -18,9 +18,10 @@
     <!--Lightbox für Formularerstellung wird implementiert.-->
     <script type="text/javascript" src="lightbox.js"></script>
 
-	  <script type="text/javascript" src="javascript/javaScript.js"></script>
+	  <script type="text/javascript" src="f"></script>
   </head>
   <body>
+  <!--Dropdown menü-->
 	<nav>
 		<!--Hier wird auf die Startseite verlinkt.-->
   		<a href="index.html">Home</a> 
@@ -144,6 +145,100 @@
 			</tr>
 	  </tbody>
     </table>
+
+	<form>
+		<!--<p>An welchen Tagen hast du dieses Fach?</p> <!--Checkboxen
+		<fieldset>
+			<label>
+				<input type="checkbox" name="tag" value="Montag">
+				Montag
+			</label>
+			<label>
+				<input type="checkbox" name="tag" value="Dienstag">
+				Dienstag
+			</label>
+			<label>
+				<input type="checkbox" name="tag" value="Mittwoch">
+				Mittwoch
+			</label>
+			<label>
+				<input type="checkbox" name="tag" value="Donnerstag">
+				Donnerstag
+			</label>
+			<label>
+				<input type="checkbox" name="tag" value="Freitag">
+				Freitag
+			</label>
+		</fieldset>-->
+		<p>Daten</p>
+		<fieldset> <!--Textfeld-->
+			<label for="vname">
+			<input type="text" id="vname" name="vname" value="Dein Vorname">
+			</label>
+			<label for="schule">
+			<input type="text" id="schule" name="schule" value="Deine Schule">
+			</label>
+		</fieldset>
+		<p>Professoren</p>
+		<fieldset> <!--DropDown-Menü-->
+		<label for="professoren">
+			<select name="professoren" size="6">
+				<optgroup label="Professorin">
+				<option>Professorin Müller</option>
+				<option>Professorin Gruber</option>
+				<option>Professorin Y</option>
+				</optgroup>
+				<optgroup label="Professor">
+				<option>Professor Panther</option>
+				<option>Professor X</option>
+				<option>Professor Mustermann</option>
+				</optgroup>
+			</select>
+		</label>
+		</fieldset>
+
+
+		<p>Welches Fach ist dein Liebling?</p> <!--Radiobutton-->
+		<fieldset>
+			<input type="radio" id="m" name="Lieblingsfach" value="Mathe">
+			<label for="m">Mathe</label>
+			<input type="radio" id="d" name="Lieblingsfach" value="Deutsch">
+			<label for="d">Deutsch</label>
+			<input type="radio" id="e" name="Lieblingsfach" value="Englisch">
+			<label for="e">Englisch</label>
+			<input type="radio" id="f" name="Lieblingsfach" value="Französisch">
+			<label for="f">Französisch</label>
+			<input type="radio" id="l" name="Lieblingsfach" value="Latein">
+			<label for="l">Latein</label>
+			<input type="radio" id="g" name="Lieblingsfach" value="Geschichte">
+			<label for="g">Geschichte</label>
+		</fieldset>
+		<p>Schuljahr</p>
+		<fieldset> <!--Zahlenfeld-->
+		<label for="schuljahr">
+			<input id="schuljahr" type="number" value="2016">
+		</label>
+		</fieldset>
+		<p>Fächer</p>
+		<fieldset> <!--Datalist-->
+			<label for="faecher">
+			<input type="search" list="faecher">
+				<datalist id="faecher">
+					<option value="Mathe">
+					<option value="Deutsch">
+					<option value="Englisch">
+					<option value="Latein">
+					<option value="Französisch">
+					<option value="Italenisch">
+					<option value="Spanisch">
+					<option value="Geschichte">
+					<option value="Sport">
+					<option value="Musik">
+				</datalist>
+			</label>
+		</fieldset>
+
+	</form>
     <!--Im Fußbereich der Webseite werden zusätzliche Informationen mittels einer 
     Navigation zur Verfügung gestellt.-->
   <footer>

@@ -1,0 +1,1 @@
+/*hier kommt lightbox JavaScript Code*/

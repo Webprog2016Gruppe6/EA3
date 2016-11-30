@@ -21,15 +21,20 @@
   </head>
   <body>
 	<nav>
-		<!--Hier wird auf die Startseite verlinkt.-->
-  		<a href="index.html">Home</a> 
-  		<!--Hier wird auf die 1.Setup-Seite verlinkt um einen neuen Stundenplan 
-  		erstellen zu können.-->
-  		<a href="javascript:alert('Aktion folgt');">Stundenplan erstellen</a> 
-  		<!-- Hier wird der eingegebene/erstellte Stundenplan gespeichert.-->
-  		<a href="javascript:alert('Aktion folgt');">Speichern</a>
-		<!-- Hier werden später optionale Symbole für die Menüführung eingefügt.-->
-  		<a href="javascript:alert('Aktion folgt');">Symbole</a> 
+		<form action="index.html"> <!--Hier wird auf die Startseite verlinkt.-->
+			<input type="submit" id="home" value="Home">
+		</form>
+		<form action="javascript:alert('Aktion folgt');">
+			<input type="submit" id="erstellen" value="Stundenplan erstellen">
+			<!--Hier wird auf die 1.Setup-Seite verlinkt um einen neuen Stundenplan
+  			erstellen zu können.-->
+			<input type="submit" id="speichern" value="Speichern" href="javascript:alert('Aktion folgt');">
+			<!-- Hier wird der eingegebene/erstellte Stundenplan gespeichert.-->
+			<button type="submit" id="einstellungen" href="javascript:alert('Aktion folgt');">&#9881;     </button>
+			<!-- Hier gelangt man zu den Einstellungen-->
+			<button type="submit" id="hilfe" href="javascript:alert('Aktion folgt');">?</button>
+			<!--Hier gelangt man zur Hilfe-->
+		</form>
 	</nav>
     <!--https://datatables.net/examples/basic_init/scroll_xy.html-->
     <table id="stundenplaner" width="100%">

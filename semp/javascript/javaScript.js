@@ -1,12 +1,16 @@
-<script type="text/javascript">
-$(document).ready(function() {
-    $('#stundenplaner').DataTable( { // bezieht sich auf die Funktion DataTables im index.html Dokument
-        "scrollY": 200,  // legt die Größe des scrollbaren Bereichs fest
-        "scrollX": true, //Hier wird der Stundenplan scrollbar gemacht
-        "filter": false, //Filter werden ausgeblendet
-        "info": false,   //Titel wird ausgeblendet
-        "paging": false
-        //Seitenzahlen werden ausgeblendet, falls Tabelle auf mehrere Seiten aufgeteilt wird
-    } );
-} );
-</script>
+/*hier kommt JavaScriptCode*/
+
+/*Drag and Drop*/
+function allowDrop(ev) {
+    event.preventDefault();
+}
+
+function drag(ev) {
+    event.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+    event.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    event.target.appendChild(document.getElementById(data));
+}

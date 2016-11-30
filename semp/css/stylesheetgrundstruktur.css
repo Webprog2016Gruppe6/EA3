@@ -1,0 +1,62 @@
+	nav:first-child {
+		margin-left:300px;
+		margin-top:20px;
+		margin-bottom:10px;
+		font-family: Verdana, bold;
+		}
+	nav:last-child {
+		margin-left:400px;
+		margin-top:20px;
+		}
+    caption  { 
+      		background-color: blue; 
+      		text-align: center; 
+      		color: white;
+      		font-family: Verdana;
+      		font-weight:bold;
+      		border:hidden;
+      	}
+      thead th {	
+      		background-color: white; 
+      		text-align: center; 
+      		color: blue; 
+      		font-family: Verdana;
+      		border:hidden;
+      	}
+      	
+      tbody tr {	
+      		text-align: center; 
+      		background-color: white;
+      		color: blue;
+      		font-family: Verdana;
+      		border:hidden;
+      	}
+      tfoot tr {
+      		text-align: center; 
+      		background-color: white;
+      		color: blue;
+      		font-family: Verdana;
+      		font-weight: bold;
+      		border-left: hidden;
+      		border-right: hidden;
+      	}
+      tbody td {	
+      		border: 1px solid yellow;
+      	}
+      table {
+      		box-shadow: 10px 10px 10px grey;
+  			border-collapse: collapse;
+  			margin-left: 20px;
+  			margin-right: 20px;
+  			margin-bottom: 30px;
+  			margin-top: 20px;
+      	}
+      tbody tr:nth-child(odd),tfoot tr:nth-child(even)  {
+			background-color: yellow ;
+			color: blue;
+		}
+	  tbody tr:hover, tfoot tr:hover { 
+  			background-color:red;
+  			color: white;
+		}
+	  

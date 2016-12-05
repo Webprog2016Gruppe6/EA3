@@ -2,29 +2,31 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Stundenplaner-Grundstruktur</title>
-    <!--Bitte mit Chrome testen. Als Vorlage dient das Wireframe "Ansicht".
-    sobald das Stylesheet eingebunden wird, wird die Ausgabe der Tabelle wie gewünscht
-    angezeigt -->
-    <link rel="stylesheet" href="css/stylesheetgrundstruktur.css">
+    <title>Stundenplaner</title>
+    <!--Bitte mit Chrome testen.-->
+  	<link rel="stylesheet" href="css/stylesheetgrundstruktur.css">
   	<link rel="stylesheet" href="css/lightbox.css">
     <!-- Einbindung von Jquery & dessen Plugin-->
-    <script src="http://code.jquery.com/jquery-1.12.3.js"></script>
+  	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <!--https://datatables.net/examples/basic_init/hidden_columns.html
     DataTables wird implementiert, damit wird die Tabelle u.a. scrollbar und wird um
     weitere zusätzliche Funktionen erweitert.-->
     <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <!--Lightbox für Formularerstellung wird implementiert.-->
     <script type="text/javascript" src="javascript/lightbox.js"></script>
   	<script type="text/javascript" src="javascript/javaScript.js"></script>
   	<script type="text/javascript" src="javascript/datatables.js"></script>
+	  <script>
+
+	  </script>
+
   </head>
   <body>
 	<nav>
 		<form action="index.html"> <!--Hier wird auf die Startseite verlinkt.-->
 			<input type="submit" id="home" value="Home">
-		</form>
+
 		<form action="javascript:alert('Aktion folgt');">
 			<input type="submit" id="erstellen" value="Stundenplan erstellen">
 			<!--Hier wird auf die 1.Setup-Seite verlinkt um einen neuen Stundenplan
@@ -39,125 +41,127 @@
 	</nav>
 	<aside>
 		<!--hier kommt die Seitenleiste mit den Fächern-->
-		<form><button type="submit" id="mathe" draggable="true">Mathe</button> </form>
-		<form><button type="submit" id="deutsch" draggable="true">Deutsch</button> </form>
-		<form><button type="submit" id="englisch" draggable="true">Englisch</button> </form>
-		<form><button type="submit" id="franzoesisch" draggable="true">Französisch</button> </form>
-		<form><button type="submit" id="italenisch" draggable="true">Italenisch</button> </form>
+
+
+		<div id="mathe" draggable="true"
+			 ondragstart="draggenInnerTable(event)" ><p>Mathe</p></div>
+		<div id="deutsch" draggable="true"
+			 ondragstart="draggenInnerTable(event)"><p>Deutsch</p></div>
+		<div id="franzoesisch" draggable="true"
+			 ondragstart="draggenInnerTable(event)"><p>Französisch</p></div>
+		<div id="latein" draggable="true"
+			 ondragstart="draggenInnerTable(event)"><p>Latein</p></div>
+		<div id="geschichte" draggable="true"
+			 ondragstart="draggenInnerTable(event)"><p>Geschichte</p></div>
+
+
+
+		<!--form><button type="submit" id="deutsch" draggable="true">Deutsch</button> </form>
+        <form><button type="submit" id="englisch" draggable="true">Englisch</button> </form>
+        <form><button type="submit" id="franzoesisch" draggable="true">Französisch</button> </form>
+        <form><button type="submit" span id="italenisch" >Italenisch</button> </form-->
 
 
 	</aside>
+
     <!--https://datatables.net/examples/basic_init/scroll_xy.html-->
-    <table id="stundenplaner" width="100%">
-    <!--Diese Tabelle stellt das Grundmuster des Stundenplaners da.-->
-        <thead>
-			<tr>
-				<th>Stunde</th> 
-				<th>Montag</th>
-				<th>Dienstag</th>
-				<th>Mittwoch</th>
-				<th>Donnerstag</th>
-				<th>Freitag</th>
-				<th>Samstag</th>
-				<th>Sonntag</th>
-			</tr> 
-		</thead>
-		<tfoot>
-			<tr>
-				<td>Stunde</td>
-				<td>Montag</td> 
-				<td>Dienstag</td> 
-				<td>Mittwoch</td> 
-				<td>Donnerstag</td> 
-				<td>Freitag</td>
-				<td>Samstag</td>
-				<td>Sonntag</td>
-			</tr>
-		</tfoot>
-		<tbody>
-			<tr>
-				<td>1.</td> 
-				<td></td> 
-				<td></td> 
-				<td></td> 
-				<td></td> 
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
-			<tr>
-				<td>2.</td> 
-				<td></td> 
-				<td></td> 
-				<td></td> 
-				<td></td> 
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
-			<tr>
-				<td>3.</td> 
-				<td></td> 
-				<td></td> 
-				<td></td> 
-				<td></td> 
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
-			<tr>
-				<td>4.</td> 
-				<td></td> 
-				<td></td> 
-				<td></td> 
-				<td></td> 
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
-			<tr>
-				<td>5.</td> 
-				<td></td> 
-				<td></td> 
-				<td></td> 
-				<td></td> 
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
-			<tr>
-				<td>6.</td> 
-				<td></td> 
-				<td></td> 
-				<td></td> 
-				<td></td> 
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
-			<tr>
-				<td>7.</td> 
-				<td></td> 
-				<td></td> 
-				<td></td> 
-				<td></td> 
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
-			<tr>
-				<td>8.</td> 
-				<td></td> 
-				<td></td> 
-				<td></td> 
-				<td></td> 
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
-	  </tbody>
-    </table>
-    <!--Im Fußbereich der Webseite werden zusätzliche Informationen mittels einer 
+
+<table>
+	<tr>
+		<th>Stunde</th>
+		<th>Montag</th>
+		<th>Dienstag</th>
+		<th>Mittwoch</th>
+		<th>Donnerstag</th>
+		<th>Freitag</th>
+		<th>Samstag</th>
+		<th>Sonntag</th>
+	</tr>
+	<tr>
+		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)">1.</td>
+		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+
+	</tr>
+	<tr>
+		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)">2.</td>
+		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+	</tr>
+	<tr>
+		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)">3.</td>
+		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+	</tr>
+	<tr>
+		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)">4.</td>
+		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+	</tr>
+	<tr>
+		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)">5.</td>
+		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+	</tr>
+	<tr>
+		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)">6.</td>
+		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+	</tr>
+	<tr>
+		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)">7.</td>
+		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+	</tr>
+	<tr>
+		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)">8.</td>
+		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+	</tr>
+
+</table>
+
+    <!--Im Fußbereich der Webseite werden zusätzliche Informationen mittels einer
     Navigation zur Verfügung gestellt.-->
   <footer>
     <nav>

@@ -55,13 +55,13 @@
 		  	box-sizing: border-box; /*padding soll keine Rolle spielen*/
       	}
       tbody tr:nth-child(odd),tfoot tr:nth-child(even)  {
-			background-color: yellow ;
+			background-color: pink;
 			color: blue;
 		}
-	  tbody tr:hover, tfoot tr:hover { 
-  			background-color:red;
+	  /*tbody tr:hover, tfoot tr:hover {
+  			background-color:yellowgreen;
   			color: white;
-		}
+		}*/
 	  aside{
 		  background-color: lightslategray;
 		  float: left;

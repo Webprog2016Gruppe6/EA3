@@ -13,10 +13,13 @@
     weitere zusätzliche Funktionen erweitert.-->
     <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
   	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <!--Lightbox für Formularerstellung wird implementiert.-->
-    <script type="text/javascript" src="javascript/lightbox.js"></script>
+
   	<script type="text/javascript" src="javascript/javaScript.js"></script>
   	<script type="text/javascript" src="javascript/datatables.js"></script>
+
+      <!--Lightbox für Formularerstellung wird implementiert.
+      http://www.lokeshdhakar.com/projects/lightbox2/#download-->
+      <script type="text/javascript" src="javascript/lightbox.js"></script>
 	  <script>
 
 	  </script>
@@ -28,14 +31,18 @@
 			<input type="submit" id="home" value="Home">
 
 		<form action="javascript:alert('Aktion folgt');">
-			<input type="submit" id="erstellen" value="Stundenplan erstellen">
+			<input type="submit" id="erstellen" value="Stundenplan erstellen"onclick=" ">
+            <!--a href="#"-->
 			<!--Hier wird auf die 1.Setup-Seite verlinkt um einen neuen Stundenplan
   			erstellen zu können.-->
-			<input type="submit" id="speichern" value="Speichern" href="javascript:alert('Aktion folgt');">
+			<input type="submit" id="speichern" value="Speichern" href="javascript:alert('Aktion folgt');"
+                   onclick=" "> <!--a href="#"-->
 			<!-- Hier wird der eingegebene/erstellte Stundenplan gespeichert.-->
-			<button type="submit" id="einstellungen" href="javascript:alert('Aktion folgt');">&#9881;</button>
-			<!-- Hier gelangt man zu den Einstellungen-->
+			<button type="submit" id="einstellungen" href="javascript:alert('Aktion folgt');"onclick=" ">&#9881;</button>
+            <!--a href="#"-->
+            <!-- Hier gelangt man zu den Einstellungen-->
 			<button type="submit" id="hilfe" href="javascript:alert('Aktion folgt');">?</button>
+            <!--a href="#"-->
 			<!--Hier gelangt man zur Hilfe-->
 		</form>
 	</nav>
@@ -160,6 +167,7 @@
 	</tr>
 
 </table>
+
 
     <!--Im Fußbereich der Webseite werden zusätzliche Informationen mittels einer
     Navigation zur Verfügung gestellt.-->

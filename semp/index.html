@@ -14,15 +14,35 @@
     <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
   	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-  	<script type="text/javascript" src="javascript/javaScript.js"></script>
-  	<script type="text/javascript" src="javascript/datatables.js"></script>
+  <script type="text/javascript" src="javascript/javaScript.js"></script>
+  <!--https://datatables.net/examples/basic_init/scroll_xy.html-->
+  	<!--script type="text/javascript" src="javascript/datatables.js"></script-->
 
       <!--Lightbox für Formularerstellung wird implementiert.
       http://www.lokeshdhakar.com/projects/lightbox2/#download-->
       <script type="text/javascript" src="javascript/lightbox.js"></script>
-	  <script>
 
-	  </script>
+      <script>
+      var popup;
+
+      function impressumOpen() {
+          popup = window.open("", "popup", "width=500,height=300");
+          popup.document.write("<p>Webseite made by Gruppe 6 aus Webprogrammierung</p>");
+      }
+
+      function agbOpen() {
+          popup = window.open("", "popup", "width=500,height=300");
+          popup.document.write("<p>Alle Rechte vorbehalten</p>");
+      }
+      function kontaktOpen() {
+          popup = window.open("", "popup", "width=500,height=300");
+          popup.document.write("<p>Kontakt über moodle.oncampus.de</p>");
+      }
+      function datenschutzOpen() {
+          popup = window.open("", "popup", "width=500,height=300");
+          popup.document.write("<p>Ihr Datenschutz wird gewahrt. :-)</p>");
+      }
+      </script>
 
   </head>
   <body>
@@ -38,10 +58,10 @@
 			<input type="submit" id="speichern" value="Speichern" href="javascript:alert('Aktion folgt');"
                    onclick=" "> <!--a href="#"-->
 			<!-- Hier wird der eingegebene/erstellte Stundenplan gespeichert.-->
-			<button type="submit" id="einstellungen" href="javascript:alert('Aktion folgt');"onclick=" ">&#9881;</button>
+			<input type="submit" value="&#9881;" id="einstellungen" href="javascript:alert('Aktion folgt');"onclick=" ">
             <!--a href="#"-->
             <!-- Hier gelangt man zu den Einstellungen-->
-			<button type="submit" id="hilfe" href="javascript:alert('Aktion folgt');">?</button>
+			<input type="submit" value="?" id="hilfe" href="javascript:alert('Aktion folgt');">
             <!--a href="#"-->
 			<!--Hier gelangt man zur Hilfe-->
 		</form>
@@ -60,6 +80,7 @@
 			 ondragstart="draggenInnerTable(event)"><p>Latein</p></div>
 		<div id="geschichte" draggable="true"
 			 ondragstart="draggenInnerTable(event)"><p>Geschichte</p></div>
+		<button id="fertig"><p>Fertig</p></button>
 
 
 
@@ -71,9 +92,9 @@
 
 	</aside>
 
-    <!--https://datatables.net/examples/basic_init/scroll_xy.html-->
 
-<table>
+
+<table id="stundenplaner">
 	<tr>
 		<th>Stunde</th>
 		<th>Montag</th>
@@ -174,13 +195,13 @@
   <footer>
     <nav>
     	<!--Hier wird auf das Impressum verlinkt.-->
-  		<a href="impressum.html">Impressum</a>
+  		<button onclick="impressumOpen()">Impressum</button>
   		<!--Hier wird auf die AGBs verlinkt.-->
-  		<a href="agb.html">AGB</a>
+        <button onclick="agbOpen()">AGB</button>
   		<!--Hier wird auf die Kontaktmöglichkeiten verlinkt.-->
-  		<a href="kontakt.html">Kontakt</a>
+        <button onclick="kontaktOpen()">Kontakt</button>
   		<!--Hier wird auf Datenschutzbestimmungen der Webseite verlinkt.-->
-  		<a href="datenschutz.html">Datenschutz</a>
+        <button onclick="datenschutzOpen()">Datenschutz</button>
 	</nav>
   </footer>
 </body>

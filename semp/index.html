@@ -4,83 +4,86 @@
     <meta charset="utf-8">
     <title>Stundenplaner</title>
     <!--Bitte mit Chrome testen.-->
-  	<link rel="stylesheet" href="css/stylesheetgrundstruktur.css">
-  	<link rel="stylesheet" href="css/lightbox.css">
-    <!-- Einbindung von Jquery & dessen Plugin, wurde auskommentiert für offline nutzung-->
-  	<!--script src="https://code.jquery.com/jquery-1.12.4.js"></script-->
-	  <script src="javascript/jquery.js"></script>
+	<link rel="stylesheet" href="css/stylesheetgrundstruktur.css">
+  	<link rel="stylesheet" media="print" href="css/print.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <!--https://datatables.net/examples/basic_init/hidden_columns.html
     DataTables wird implementiert, damit wird die Tabelle u.a. scrollbar und wird um
     weitere zusätzliche Funktionen erweitert.-->
     <!--script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script-->
-  	<!--script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script-->
-	  <!--wurde auskommentiert für offline nutzung-->
-  <script type="text/javascript" src="javascript/javaScript.js"></script>
-  <!--https://datatables.net/examples/basic_init/scroll_xy.html-->
-  	<!--script type="text/javascript" src="javascript/datatables.js"></script-->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  	<script type="text/javascript" src="javascript/javaScript.js"></script>
+  	<!--https://datatables.net/examples/basic_init/scroll_xy.html-->
+	 <!--script type="text/javascript" src="javascript/datatables.js"></script-->
+  	 <script>
 
-      <!--Lightbox für Formularerstellung wird implementiert.
-      http://www.lokeshdhakar.com/projects/lightbox2/#download-->
-      <script type="text/javascript" src="javascript/lightbox.js"></script>
+		  var mobileVersion = (window.location.pathname);
 
-      <script>
+		  if (screen.width < 400) {
+				  document.write("<a href='"+mobileVersion+"/mobile'>Mobile Version<\/a>");
+		  }
+	  //Impressum, Kontakt, AGBs und Datenschutz werden in seperaten Popups angezeigt, bei
+	  //Klick auf die entsprechenden Buttons
       var popup;
-
-      function impressumOpen() {
+      function impressumOpen()
+	  {
           popup = window.open("", "popup", "width=500,height=300");
           popup.document.write("<p>Webseite made by Gruppe 6 aus Webprogrammierung</p>");
       }
-
-      function agbOpen() {
+      function agbOpen()
+	  {
           popup = window.open("", "popup", "width=500,height=300");
           popup.document.write("<p>Alle Rechte vorbehalten</p>");
       }
-      function kontaktOpen() {
+      function kontaktOpen()
+	  {
           popup = window.open("", "popup", "width=500,height=300");
           popup.document.write("<p>Kontakt über moodle.oncampus.de</p>");
       }
-      function datenschutzOpen() {
-          popup = window.open("", "popup", "width=500,height=300");
-          popup.document.write("<p>Ihr Datenschutz wird gewahrt. :-)</p>");
-      }
-      </script>
-
+      function datenschutzOpen()
+	  {
+		  popup = window.open("", "popup", "width=500,height=300");
+		  popup.document.write("<p>Ihr Datenschutz wird gewahrt. :-)</p>");
+	  }
+	  function hilfe()
+	  {
+		  popup = window.open("", "popup", "width=500,height=300");
+		  popup.document.write("<p>Das ist die Hilfe!</p>");
+	  }
+	  </script>
   </head>
   <body>
 	<nav>
-		<form action="index.html"> <!--Hier wird auf die Startseite verlinkt.-->
-			<input type="submit" id="home" value="Home">
-
-		<form action="javascript:alert('Aktion folgt');">
-			<input type="submit" id="erstellen" value="Stundenplan erstellen"onclick=" ">
-            <!--a href="#"-->
-			<!--Hier wird auf die 1.Setup-Seite verlinkt um einen neuen Stundenplan
-  			erstellen zu können.-->
-			<input type="submit" id="speichern" value="Speichern" href="javascript:alert('Aktion folgt');"
-                   onclick=" "> <!--a href="#"-->
-			<!-- Hier wird der eingegebene/erstellte Stundenplan gespeichert.-->
-			<input type="submit" value="&#9881;" id="einstellungen" href="javascript:alert('Aktion folgt');"onclick=" ">
-            <!--a href="#"-->
-            <!-- Hier gelangt man zu den Einstellungen-->
-			<input type="submit" value="?" id="hilfe" href="javascript:alert('Aktion folgt');">
-            <!--a href="#"-->
-			<!--Hier gelangt man zur Hilfe-->
-		</form>
+	  <form>
+	  <button id="home" value="Home" a href="index.html">Home</button>
+	  <!--Hier folgt die Funktionalität Erstellen des Stundenplaners-->
+	  <button id="erstellen" value="Stundenplan erstellen"
+	  onclick="javascript:alert('Aktion folgt');">Stundenplan erstellen</button>
+	  <!--Hier folgt die Funktionalität Speichern des Stundenplaners-->
+	  <button id="speichern" value="Speichern" onclick="javascript:alert('Aktion folgt');">
+		  Speichern</button>
+	  <!--Hier wird das Drucken-Fenster aufgerufen-->
+	  <button id="einstellungen" value="&#9881;" onclick="window.print()">&#9881;</button>
+	  <!--Hier folgt die Funktionalität Hilfe zum Stundenplaners-->
+	  <button  id="hilfe" value="?" onclick="window.hilfe()">?</button>
+	  </form>
 	</nav>
 	<aside>
 		<!--hier kommt die Seitenleiste mit den Fächern-->
 
 
-		<div id="mathe" draggable="true"
+		<div id="mathe" draggable="true" class="faecher"
 			 ondragstart="draggenInnerTable(event)" ><p>Mathe</p></div>
-		<div id="deutsch" draggable="true"
+		<div id="deutsch" draggable="true" class="faecher"
 			 ondragstart="draggenInnerTable(event)"><p>Deutsch</p></div>
-		<div id="franzoesisch" draggable="true"
+		<div id="franzoesisch" draggable="true" class="faecher"
 			 ondragstart="draggenInnerTable(event)"><p>Französisch</p></div>
-		<div id="latein" draggable="true"
+		<div id="latein" draggable="true" class="faecher"
 			 ondragstart="draggenInnerTable(event)"><p>Latein</p></div>
-		<div id="geschichte" draggable="true"
+		<div id="geschichte" draggable="true" class="faecher"
 			 ondragstart="draggenInnerTable(event)"><p>Geschichte</p></div>
+		<div id="etc" draggable="true" class="faecher"
+			 ondragstart="draggenInnerTable(event)"><p>Etc.</p></div>
 		<button id="fertig"><p>Fertig</p></button>
 
 
@@ -97,14 +100,24 @@
 
 <table id="stundenplaner">
 	<tr>
-		<th>Stunde</th>
-		<th>Montag</th>
-		<th>Dienstag</th>
-		<th>Mittwoch</th>
-		<th>Donnerstag</th>
-		<th>Freitag</th>
-		<th>Samstag</th>
-		<th>Sonntag</th>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th>Stundenplaner</th>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th></th>
+	</tr>
+	<tr>
+		<td>Stunde</td>
+		<td>Montag</td>
+		<td>Dienstag</td>
+		<td>Mittwoch</td>
+		<td>Donnerstag</td>
+		<td>Freitag</td>
+		<td>Samstag</td>
+		<td>Sonntag</td>
 	</tr>
 	<tr>
 		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)">1.</td>

@@ -1,0 +1,19 @@
+@page
+    {
+    size: landscape
+    }
+
+aside, body nav
+    {
+    display: none;
+    }
+form
+    {
+    display: none;
+    }
+table
+    {
+    box-shadow: none;
+    width: 100%;
+    }
+

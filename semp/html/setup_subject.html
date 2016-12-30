@@ -1,0 +1,151 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Stundenplaner - Eingabe der Fächer</title>
+    <!--Bitte mit Chrome testen.-->
+    <link rel="stylesheet" href="../css/stylesheetgrundstruktur.css">
+    <link rel="stylesheet" href="../css/formular.css">
+    <link rel="stylesheet" media="print" href="../css/print.css">
+    <!-- script src="https://code.jquery.com/jquery-1.12.4.js"></script -->
+    <!--https://datatables.net/examples/basic_init/hidden_columns.html
+    DataTables wird implementiert, damit wird die Tabelle u.a. scrollbar und wird um
+    weitere zusätzliche Funktionen erweitert.-->
+    <!--script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script-->
+    <!-- script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script -->
+    <script type="text/javascript" src="../javascript/jquery.js"></script>
+    <script type="text/javascript" src="../javascript/javaScript.js"></script>
+    <!--https://datatables.net/examples/basic_init/scroll_xy.html-->
+    <!--script type="text/javascript" src="javascript/datatables.js"></script-->
+    <script>
+
+        var mobileVersion = (window.location.pathname);
+
+        if (screen.width < 400) {
+            document.write("<a href='"+mobileVersion+"/mobile'>Mobile Version<\/a>");
+        }
+        //Impressum, Kontakt, AGBs und Datenschutz werden in seperaten Popups angezeigt, bei
+        //Klick auf die entsprechenden Buttons
+        var popup;
+        function impressumOpen()
+        {
+            popup = window.open("", "popup", "width=500,height=300");
+            popup.document.write("<p>Webseite made by Gruppe 6 aus Webprogrammierung</p>");
+        }
+        function agbOpen()
+        {
+            popup = window.open("", "popup", "width=500,height=300");
+            popup.document.write("<p>Alle Rechte vorbehalten</p>");
+        }
+        function kontaktOpen()
+        {
+            popup = window.open("", "popup", "width=500,height=300");
+            popup.document.write("<p>Kontakt über moodle.oncampus.de</p>");
+        }
+        function datenschutzOpen()
+        {
+            popup = window.open("", "popup", "width=500,height=300");
+            popup.document.write("<p>Ihr Datenschutz wird gewahrt. :-)</p>");
+        }
+        function hilfe()
+        {
+            popup = window.open("", "popup", "width=500,height=300");
+            popup.document.write("<p>Das ist die Hilfe!</p>");
+        }
+    </script>
+    <link rel="stylesheet" href="../css/stylesheetgrundstruktur.css">
+</head>
+<body>
+<nav>
+    <form>
+        <button id="home" value="Home" a href="index.html">Home</button>
+        <!--Hier folgt die Funktionalität Erstellen des Stundenplaners-->
+        <button id="erstellen" value="Stundenplan erstellen" onclick="javascript:alert('Aktion folgt');" disabled>Stundenplan erstellen</button>
+        <!--Hier folgt die Funktionalität Speichern des Stundenplaners-->
+        <button id="speichern" value="Speichern" onclick="javascript:alert('Aktion folgt');"> Speichern</button>
+        <!--Hier wird das Drucken-Fenster aufgerufen-->
+        <button id="einstellungen" value="&#9881;" onclick="window.print()">&#9881;</button>
+        <!--Hier folgt die Funktionalität Hilfe zum Stundenplaners-->
+        <button  id="hilfe" value="?" onclick="window.hilfe()">?</button>
+    </form>
+</nav>
+<aside>
+    <!--hier kommt die Seitenleiste mit den Fächern-->
+
+
+    <div id="mathe" draggable="true" class="faecher"
+         ondragstart="draggenInnerTable(event)" ><p>Mathe</p></div>
+    <div id="deutsch" draggable="true" class="faecher"
+         ondragstart="draggenInnerTable(event)"><p>Deutsch</p></div>
+    <div id="franzoesisch" draggable="true" class="faecher"
+         ondragstart="draggenInnerTable(event)"><p>Französisch</p></div>
+    <div id="latein" draggable="true" class="faecher"
+         ondragstart="draggenInnerTable(event)"><p>Latein</p></div>
+    <div id="geschichte" draggable="true" class="faecher"
+         ondragstart="draggenInnerTable(event)"><p>Geschichte</p></div>
+    <div id="etc" draggable="true" class="faecher"
+         ondragstart="draggenInnerTable(event)"><p>Etc.</p></div>
+    <button id="fertig"><p>Fertig</p></button>
+
+
+
+    <form><button type="submit" id="deutsch" draggable="true">Deutsch</button> </form>
+    <form><button type="submit" id="englisch" draggable="true">Englisch</button> </form>
+    <form><button type="submit" id="franzoesisch" draggable="true">Französisch</button> </form>
+    <form><button type="submit" span id="italenisch" >Italenisch</button> </form>
+
+
+</aside>
+<!-- im main Bereich befindet sich das Formular zu Einrichtung eines Faches-->
+<main>
+    <!-- HTML-5-Formular, native Validierung wird eingesetzt, wo es nützlich ist.
+        Zusätzliche Validierung per jQuery, wenn nötig und sinnvoll -->
+    <h1>Eingabe des Faches</h1>
+    <form action="/" method="post" class="formular">
+        <div>
+            <label for="subject_name">Name:</label><br>
+            <input type="text" id="subject_name" name="subject_name" required maxlength="200"/>
+        </div>
+
+        <div>
+            <label for="subject_description">Beschreibung</label><br />
+            <textarea id="subject_description" name="subject_description" rows="10" cols="50">Hier soll eine Beschreibung des Faches angegeben werden können</textarea>
+        </div>
+        <div>
+            <label for="subject_name">Professor/in:</label>
+            <input type="text" id="subject_name" name="subject_teacher" class="input_short" required maxlength="200"/>
+        </div>
+        <div>
+            <label for="subject_room">Raumbezeichnung:</label>
+            <input type="text" id="subject_room" name="subject_room" class="input_short" required maxlength="200"/>
+        </div>
+
+        <div>
+            <label for="subject_msg">Notizen/Sonstiges</label><br>
+            <textarea id="subject_msg" name="subject_msg" rows="5" cols="25"></textarea>
+         </div>
+        <div id="matrix">
+            <label for="subject_matrix">Matrix</label><br>
+            <script>generate_matrix("mofr");</script>
+        </div>
+        <div class="button">
+            <button id="formsave" onclick="saveSubject();">Speichern</button>
+        </div>
+    </form>
+</main>
+<!--Im Fußbereich der Webseite werden zusätzliche Informationen mittels einer
+Navigation zur Verfügung gestellt.-->
+<footer>
+    <nav>
+        <!--Hier wird auf das Impressum verlinkt.-->
+        <button onclick="impressumOpen()">Impressum</button>
+        <!--Hier wird auf die AGBs verlinkt.-->
+        <button onclick="agbOpen()">AGB</button>
+        <!--Hier wird auf die Kontaktmöglichkeiten verlinkt.-->
+        <button onclick="kontaktOpen()">Kontakt</button>
+        <!--Hier wird auf Datenschutzbestimmungen der Webseite verlinkt.-->
+        <button onclick="datenschutzOpen()">Datenschutz</button>
+    </nav>
+</footer>
+</body>
+</html>

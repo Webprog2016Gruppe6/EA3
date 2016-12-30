@@ -66,3 +66,74 @@ request.onsuccess = function() {
         database.close();
     };
 }
+
+
+
+/* Generate Matrix */
+function generate_matrix(weekmode){
+    if(weekmode == "mosa"){
+        var days = ["Mo", "Di","Mi","Do","Fr","Sa"];
+    }else{
+        var days = ["Mo", "Di","Mi","Do","Fr"];
+    }
+    var hours = ["x","1","2","3","4","5","6","7","8"];
+
+    document.write("<div class=\"table\">");
+    for (var i=0 ; i<hours.length;i++){
+        document.write("<div class=\"row\">");
+        document.write("<div class=\"cell\">");
+        if(i>0) {
+            document.write(hours[i] + ".Std");
+        }
+        document.write("</div>");
+
+        for (var j=0 ; j<days.length;j++) {
+            document.write("<div class=\"cell\">");
+            if(i==0){
+                document.write(days[j]);
+            }else{
+                document.write("<input type='checkbox' id='" + days[j].toLocaleLowerCase() + "_" + hours[i] +"' />");
+            }
+            document.write("</div>");
+        }
+        document.write("</div>");
+    }
+    document.write("</div>");
+
+}
+
+/* save subject */
+/* Umsetzung mit jQuery ist evtl sinnvoller. */
+
+function saveSubject(){
+    var errors = 0;
+
+    //validate each element
+    var name = document.getElementById("subject_name");
+    if (name.value == ""){
+        errors++;
+        name.style.color = "#ff0000"
+    }
+
+    var teacher = document.getElementById("subject_teacher");
+    if (teacher.value == ""){
+        errors++;
+        teacher.style.color = "#ff0000"
+    }
+
+    var room = document.getElementById("subject_room");
+    if (room.value == ""){
+        errors++;
+        room.style.color = "#ff0000"
+    }
+
+    alert(errors)
+    // nur wenn kein Fehler, dann wird Fach gespeichert
+    if(errors == 0){
+        // Hier speichern
+        return true;
+    }else{
+        return false;
+    }
+
+}

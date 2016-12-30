@@ -87,14 +87,6 @@
          ondragstart="draggenInnerTable(event)"><p>Etc.</p></div>
     <button id="fertig"><p>Fertig</p></button>
 
-
-
-    <form><button type="submit" id="deutsch" draggable="true">Deutsch</button> </form>
-    <form><button type="submit" id="englisch" draggable="true">Englisch</button> </form>
-    <form><button type="submit" id="franzoesisch" draggable="true">Französisch</button> </form>
-    <form><button type="submit" span id="italenisch" >Italenisch</button> </form>
-
-
 </aside>
 <!-- im main Bereich befindet sich das Formular zu Einrichtung eines Faches-->
 <main>
@@ -125,6 +117,7 @@
             <textarea id="subject_msg" name="subject_msg" rows="5" cols="25"></textarea>
          </div>
         <div id="matrix">
+            <!-- TODO: label for muss noch angepasst werden -->
             <label for="subject_matrix">Matrix</label><br>
             <script>generate_matrix("mofr");</script>
         </div>

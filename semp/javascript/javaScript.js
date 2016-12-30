@@ -70,28 +70,37 @@ request.onsuccess = function() {
 
 
 /* Generate Matrix */
+
 function generate_matrix(weekmode){
+// weekmode set days-array with five or six days
     if(weekmode == "mosa"){
         var days = ["Mo", "Di","Mi","Do","Fr","Sa"];
     }else{
         var days = ["Mo", "Di","Mi","Do","Fr"];
     }
+    // possible hours
     var hours = ["x","1","2","3","4","5","6","7","8"];
 
+    // write table-like div (eq. to <table> -tag
     document.write("<div class=\"table\">");
+    // each hour a new row (like <tr>
     for (var i=0 ; i<hours.length;i++){
         document.write("<div class=\"row\">");
+        // and the cells for containing the values
         document.write("<div class=\"cell\">");
+        // only from 1 to 8, x is for a void cell
         if(i>0) {
             document.write(hours[i] + ".Std");
         }
         document.write("</div>");
-
+        // and then in each row the days
         for (var j=0 ; j<days.length;j++) {
             document.write("<div class=\"cell\">");
+            // in the first line (the  'x'-line from hours) the name of the day
             if(i==0){
                 document.write(days[j]);
             }else{
+                // otherwise the checkbox, which have within the combined value for the id
                 document.write("<input type='checkbox' id='" + days[j].toLocaleLowerCase() + "_" + hours[i] +"' />");
             }
             document.write("</div>");
@@ -104,29 +113,35 @@ function generate_matrix(weekmode){
 
 /* save subject */
 /* Umsetzung mit jQuery ist evtl sinnvoller. */
-
+/* diese Funktion ist nur vorläufig, mit jQuery sinnvoller */
 function saveSubject(){
+    // helping var
     var errors = 0;
 
     //validate each element
+    // fetch element
     var name = document.getElementById("subject_name");
+    // check if void
     if (name.value == ""){
+        // increment error counter
         errors++;
+        // change backcolor to red
         name.style.color = "#ff0000"
     }
 
+    // same thing here
     var teacher = document.getElementById("subject_teacher");
     if (teacher.value == ""){
         errors++;
         teacher.style.color = "#ff0000"
     }
-
+    // same thing here
     var room = document.getElementById("subject_room");
     if (room.value == ""){
         errors++;
         room.style.color = "#ff0000"
     }
-
+    // Test output
     alert(errors)
     // nur wenn kein Fehler, dann wird Fach gespeichert
     if(errors == 0){

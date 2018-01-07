@@ -1,0 +1,17 @@
+kommentare
+
+
+ //	   var template = document.getElementById("template");
+ //    var clone = template.cloneNode(true);
+ //    clone.getElementsByTagName('span')[0].innerHTML = ++startingHour + '.Stunde';
+ //    document.getElementById("timeInput").appendChild(clone);
+
+  // var newInput2 = document.createElement("input"); 
+  // newInput2.setAttribute("type", "time");
+  // newInput2.setAttribute("value", "00:00");
+  // newInput2.setAttribute("disabled", "");
+
+
+  //var newContent = document.createTextNode("Hi there and greetings!"); 
+  
+  	//var text = document.createTextNode("Hello World");

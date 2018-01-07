@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <title>Zeitraster</title>
+        <meta charset="utf-8">
+
+        <script  type="text/javascript" src="timegrid.js"></script>
+
+        <!-- Masterlayout CSS -->
+        <link rel="stylesheet" type="text/css" href="css/masterlayout.css"> 
+        <!-- Site specific CSS -->
+        <link rel="stylesheet" type="text/css" href="timegrid.css"> 
+        <!--Icon & Font Library-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">		
+	</head>
+
+	<body>
+		<header>
+			<a class="button-style" href="#home">
+				<i class="fa fa-home" aria-hidden="true"></i>
+				Home
+			</a>
+	  		<div class="dropdown">
+		    	<button class="dbutton button-style">Dropdown 
+		      	<i class="fa fa-caret-down"></i>
+		    	</button>
+		    	<div class="hidden-menu">
+			      	<a href="#">Name und Zeitraster</a>
+			      	<a href="#">Fächer und Positionierung</a>
+			      	<a href="#">Drucken</a>
+		    	</div>
+	  		</div> 
+	  	<a class="button-style" href="#news">&Uuml;ber uns</a>
+	  	<a class="button-style rightside" href="#news">Impressum</a>
+		</header>
+		<main>
+        	
+
+        	<div class="row">
+
+				<div class="col-6">
+					<img src="media/uni.png" alt="University">
+				</div>
+			</div>
+
+
+        	<div class="shadowbox">
+	        <div class="row">
+
+				<div class="col-2">
+
+					<table style="width:100%">
+						<tr>
+						    <th colspan="2">Anleitung</th>
+						</tr>
+						<tr>
+						    <td>1.</td>
+						    <td>Namen &amp; Zeitraster eingeben</td>
+						</tr>
+						<tr>
+						    <td>2.</td>
+						    <td>Fächer erstellen &amp; positionieren</td>
+						</tr>
+						<tr>
+						    <td>3.</td>
+						    <td>Stundenplan ausdrucken</td>
+						</tr>					  
+					</table>
+
+				</div>
+
+					<div class="col-4 vertLine">
+					<form id="zeitform" action="" method="post" onsubmit="sendeFkt(); return false;"> <!-- delete return false later -->
+	                <h2>Zeitraster</h2>
+					<!-- Eingabe Textdaten-->
+	                <div>
+	                        <input type="text" id="vorname" placeholder="Dein Vorname">
+	                        <input type="text" id="nachname" placeholder="Dein Nachname"><br>
+	                        <input type="text" id="klasse" placeholder="Deine Klasse">
+	                        <input type="text" id="schule" placeholder="Deine Schule"><br>
+	                        <input type="text" id="schuljahr" placeholder="Schuljahr">
+	                        <input type="text" id="klassenlehrer" placeholder="Klassenlehrer"><br>
+	                        
+	                </div>
+						<!-- Eingabeoption Button -->
+						<div>
+							<input type="radio" id="standardTime" name="zeitAuswahl" value="Standard" onchange="changeTime()" checked  />
+							<label for="standardTime">Standard</label>
+							<br>
+							<input type="radio" id="customTime" name="zeitAuswahl" value="Eigene Eingabe" onchange="changeTime()"/>
+							<label for="customTime">Eigene Eingabe</label>
+							<br>    
+                        </div>
+						
+						<!-- Eingabe Zeitdaten -->
+						<fieldset id ="timeInput">
+							
+								<div name='rowWrap'>
+                                1.Stunde <input type="time" name="t1" id="1stdA" value="08:15" disabled > - <input type="time" id="1stdB" value ="09:45"  name="t1" disabled><br>
+                                </div>
+
+                                <div name='rowWrap'>
+                                2.Stunde <input type="time" name="t1" id="2stdA" value="10:00" disabled> - <input type="time" id="2stdB" value ="11:30" name="t1" disabled><br>
+								</div>
+
+                                <div name='rowWrap'>
+								3.Stunde <input type="time" name="t1" id="3stdA" value="12:00" disabled> - <input type="time" id="3stdB" value ="13:30" name="t1" disabled><br>
+                                </div>
+
+                                <div name='rowWrap'>								
+								4.Stunde <input type="time" name="t1" id="4stdA" value="14:30" disabled> - <input type="time" id="4stdB" value ="16:00" name="t1" disabled><br>
+                                </div>
+
+                                <div name='rowWrap'>								
+								5.Stunde <input type="time" name="t1" id="5stdA" value="16:15" disabled> - <input type="time" id="5stdB" value ="17:45" name="t1" disabled><br>
+                                </div>
+
+                                <div name='rowWrap'>								
+								6.Stunde <input type="time" name="t1" id="6stdA" value="18:00" disabled> - <input type="time" id="6stdB" value ="19:30" name="t1" disabled><br>
+								</div>					
+                        
+						</fieldset>
+						<div id="inputControl" hidden>
+						<i class="fa fa-plus" onclick="createInput()"></i>
+						<i class="fa fa-minus" onclick="deleteInput()"></i>
+						</div>
+
+						<input type="submit" value="senden">
+						<input type="reset" value="Eingaben rückgängig"> <!-- Reset, evtuell unwichtig? -->
+						</form>
+					</div>
+                    </div>    
+				</div>		
+                </main>
+                <footer class="col-6">Footer</footer>
+        </body>
+
+</html>

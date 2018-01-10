@@ -37,7 +37,7 @@
 
 		document.addEventListener("DOMContentLoaded", function(event) { 
 		helpNode = document.getElementById('timeInput');
-		helpNode= helpNode.cloneNode(true);
+		helpNode = helpNode.cloneNode(true);
 
 		});
 
@@ -50,6 +50,7 @@
 
 		helpNode = document.getElementById('timeInput');
 		helpNode = helpNode.cloneNode(true);
+		console.log(helpNode);
 
 			var j = document.getElementsByName("rowWrap").length;
 
@@ -69,17 +70,19 @@
 
 		}
 
+		//Hide Button Add & Delte
 		inputControl.hidden = true;
 
-		//Gib eigene Eingabe frei
+		//Allow to change input
 		}else if(document.getElementById('customTime').checked) {
-			
+			document.getElementById('timeInput').replaceWith(helpNode);
 			var y = document.getElementsByName("t1");
 			var i;
 			for (i = 0; i < y.length; i++) {
 				y[i].disabled = false;
 			}
 			inputControl.hidden = false;
+			
 		}
 		
 				
@@ -179,7 +182,6 @@ function deleteInput() {
 	if (pos > startingHour) {
 	var timeI = document.getElementById("timeInput");
 	timeI.removeChild(timeI.lastChild);
-	//lastEle.parentNode.removeChild(lastEle);
 	}
 }
 

@@ -50,7 +50,7 @@
 
 		helpNode = document.getElementById('timeInput');
 		helpNode = helpNode.cloneNode(true);
-		console.log(helpNode);
+
 
 			var j = document.getElementsByName("rowWrap").length;
 

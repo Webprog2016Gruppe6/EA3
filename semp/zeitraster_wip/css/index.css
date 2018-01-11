@@ -1,0 +1,66 @@
+.circle {
+
+width: 100%;
+height: 0;
+padding-bottom: 100%;
+border-radius: 50%;
+
+background-repeat: no-repeat;
+background-position: center; 
+background-size: cover;
+opacity: .5;
+
+transition: all 1s ease-out;
+
+}
+
+.hidden-circle {
+width: 100%;
+height: 0;
+padding-bottom: 100%;
+border-radius: 50%;
+
+opacity: .0;
+
+color: #fff;
+transform: scale(0.1); /* 1/10 of the original size */
+transition: all 1s ease-out;
+
+position: absolute;
+top: 0;
+bottom: 0;
+left: 0;
+right: 0;
+
+background: #000;
+color: #fff;
+vertical-align:middle;
+
+
+
+}
+
+.circle-wrap:hover .circle {
+
+    opacity: 1;
+    transform: scale(1.1);
+    transition: all 500ms ease-in;
+
+
+
+}
+
+.circle-wrap {
+  position: relative;
+}
+
+.square {
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%;
+  background-color: coral; }
+
+.rowstyle{
+
+}
+

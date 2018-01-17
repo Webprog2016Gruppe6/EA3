@@ -1,7 +1,6 @@
 /*Boxsizing - Start*/
-*,
-*:before,
-*:after  {
+
+* {
     box-sizing: border-box;
     font-family: Arial, sans-serif;
     font-size: 14px;
@@ -15,11 +14,8 @@
 
 [class*="col-"] {
     padding: 15px;
-    margin: 10px 0;
+    margin: 10px 0; 
     float: left;
-}
-.row:last-of-type {
-    background: #ff0000;
 }
 
 .vertLine {
@@ -110,16 +106,10 @@ header a:hover, .dbutton:hover {
 
 /*HeaderMenu-End*/
 
-html {
-  height: 100%;
-}
-
 body{
-  position: relative;
-  margin: 20px;
-  margin-bottom: 0px;
-  padding-bottom: 4rem;
-  min-height: 100%;
+    background-color: #FFFAC0;
+    margin: 20px;
+
 }
 
 main{
@@ -137,11 +127,6 @@ color: #ffffff;
 border-top: 2px solid black;
 border-top-left-radius: 5px;
 border-top-right-radius: 5px;
-position: absolute;
-right: 0;
-bottom: 0;
-left: 0;
-padding: 1rem;
-
 }
+
 

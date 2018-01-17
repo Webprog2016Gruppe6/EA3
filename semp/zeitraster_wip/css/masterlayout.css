@@ -1,9 +1,9 @@
 /*Boxsizing - Start*/
-
-* {
+*,
+*:before,
+*:after  {
     box-sizing: border-box;
     font-family: Arial, sans-serif;
-    font-size: 14px;
 }
 
 .row::after {
@@ -14,9 +14,10 @@
 
 [class*="col-"] {
     padding: 15px;
-    margin: 10px 0; 
+    margin: 10px 0px 0px;
     float: left;
 }
+
 
 .vertLine {
   float:left;
@@ -39,14 +40,11 @@ img {
 
 /*HeaderMenu-Start*/
 header {
-    background-color: #522DB2;
-    color: #ffffff;
-    padding: 15px;
+/*    background-color: #522DB2;
+    color: #ffffff;*/
+
     overflow: auto;
     text-align: center;
-
-    border-bottom: 2px solid black;
-    border-radius: 8px;
 }
 
 header a {
@@ -54,9 +52,13 @@ header a {
     text-decoration: none;
 }
 
+.menu_wrapper {
+    border: 1px solid black;
+}
+
 .button-style{
-    color: white;
-    font-size: 16px;
+    color: black;
+    font-size: 20px;
     padding: 14px 16px;
 }
 
@@ -71,7 +73,8 @@ header a {
 }
 
 header a:hover, .dbutton:hover {
-    background-color: #999;
+    /*background-color: #999;*/
+    border-left: 2px solid black;
 }
 
 .hidden-menu {
@@ -93,7 +96,8 @@ header a:hover, .dbutton:hover {
 }
 
 .hidden-menu a:hover {
-    background-color: #ddd;
+    background-color: #ccc;
+    border-left: 2px solid black;
 }
 
 .dropdown:hover .hidden-menu {
@@ -104,32 +108,46 @@ header a:hover, .dbutton:hover {
     float:right;
 }
 
+
+
 /*HeaderMenu-End*/
 
+html {
+  height: 100%;
+}
+
 body{
-    background-color: #FFFAC0;
-    margin: 20px;
+  position: relative;
+  margin: 20px;
+  margin-bottom: 0px;
+  min-height: 100%;
+  font-size: 16px;
+  
 
 }
 
 main{
-    background-color: #fff;
+
     text-align: center;
     margin-top: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 7px 2px -2px #99abc9 inset;
+/*    border-radius: 8px;
+    box-shadow: 0px 7px 2px -2px #99abc9 inset;*/
 }
 
 
 footer {
-background-color: #522DB2;
-color: #ffffff;
-border-top: 2px solid black;
+
+/*background-color: #522DB2;
+color: #ffffff;*/
+background-color: #333333;
+color: #ccc;
+/*border-top: 2px solid black;*/
 border-top-left-radius: 5px;
 border-top-right-radius: 5px;
-
-
-
+position: absolute;
+bottom: 0;
+left: 0;
+right: 0;
+font-size: 12px;
 
 }
-

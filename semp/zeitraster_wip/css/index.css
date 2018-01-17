@@ -61,6 +61,17 @@ vertical-align:middle;
   background-color: coral; }
 
 .rowstyle{
+  border-radius: 5px 50px 30px;
 
+  background: linear-gradient(
+    to right, 
+    rgba(216,191,216, 1) 0%, 
+    rgba(255,255,255,0) 20%,
+    rgba(255,255,255,0) 90%,  
+    rgba(216,191,216, 1) 100%
+  );
+
+  text-align: left;
+  margin-bottom: 1%;
 }
 

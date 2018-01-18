@@ -4,47 +4,80 @@
         <title>Zeitraster</title>
         <meta charset="utf-8">
 
-        <script  type="text/javascript" src=""></script>
-
+        <!-- Masterfunction Javascrips -->
+        <script  type="text/javascript" src="../javascript/masterjs.js"></script>
         <!-- Masterlayout CSS -->
-        <link rel="stylesheet" type="text/css" href="css/masterlayout.css"> 
+        <link rel="stylesheet" type="text/css" href="../css/masterlayout.css">         
         <!-- Site specific CSS -->
-        <link rel="stylesheet" type="text/css" href="index.css"> 
+        <link rel="stylesheet" type="text/css" href=""> 
         <!--Icon & Font Library-->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">		
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 	</head>
 
 	<body>
+		
 		<header>
-			<a class="button-style" href="#home">
-				<i class="fa fa-home" aria-hidden="true"></i>
-				Home
-			</a>
-	  		<div class="dropdown">
-		    	<button class="dbutton button-style">Dropdown 
-		      	<i class="fa fa-caret-down"></i>
-		    	</button>
-		    	<div class="hidden-menu">
-			      	<a href="#">Name und Zeitraster</a>
-			      	<a href="#">Fächer und Positionierung</a>
-			      	<a href="#">Drucken</a>
-		    	</div>
-	  		</div> 
-	  	<a class="button-style" href="#news">&Uuml;ber uns</a>
-	  	<a class="button-style rightside" href="#news">Impressum</a>
-		</header>
-
-		<main>
-        	<div class="row">
-				<div class="col-6"> <!--must always be 6 overall-->
-					100%
+			<div class="row">
+				<div class="col-4" style="border-bottom: 1px solid black;">
+				<a class="button-style" href="start.html">
+					<i class="fa fa-home" aria-hidden="true"></i>
+					Home
+				</a>
+		  		<div class="dropdown">
+			    	<button class="dbutton button-style">Stundenplan erstellen 
+			      	<i class="fa fa-caret-down"></i>
+			    	</button>
+			    	<div class="hidden-menu">
+				      	<a href="../">Name und Zeitraster</a>
+				      	<a href="#">Fächer und Positionierung</a>
+				      	<a href="#">Drucken</a>
+			    	</div>
+		  		</div> 
+		  		<a class="button-style" href="#news">&Uuml;ber uns</a>
+	  						
 					
+				</div>
+				<div class="col-2">
+					<img class="rightside" src="../media/chronos_logo.png" alt="logo">	
 				</div>
 			</div>
 
-        	
+		</header>
+
+		<main>
+        	    
         </main>
-                <footer class="col-6">Footer</footer>
+
+
+		<footer >
+
+        	<div class="row">
+	    		<div class="col-4">
+	    			<h4>Nutzungsbedingungen</h4>
+	    			Wenn sie diese Webseite benutzen sind sie an die folgenden Nutzungsbedingungen gebunden. Sollten sie mit diesen nicht einverstanden sein, bitten wir diese Webseite und den damit bereitgestellten Service nicht zu nutzen. Nimmt keinerlei Besitzanspruch bzw. Haftung für die im Rahmen der Webseiten erstellten Stundenpläne. Diese Webseite verwendet Cookies um dem Benutzer eine besseren Service zu garantieren.  <br>
+
+				</div>
+
+	    		<div class="col-2">
+	    			<h4>Datenschutzerklärung</h4>
+	    			Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. 
+
+
+				</div>				
+			</div>			
+
+        	<div class="row">
+				<div class="col-6">
+	        	
+	        		<hr>
+
+	        		<i class="fa fa-copyright" aria-hidden="true"></i> 2017-2018 Chronos Time Management Solutions, Alle Rechte vorbehalten
+	        		<a class="rightside" style="color: white" href="pages/impressum.html">Impressum</a>
+				</div>
+			</div>
+        </footer>
+
         </body>
 
 </html>

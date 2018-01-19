@@ -17,7 +17,7 @@
 	var input_schuljahr = document.getElementById("schuljahr");
 	var input_klassenlehrer = document.getElementById("klassenlehrer");
 
-		var sendeObjektText = {
+		var sendObjektText = {
 		'vorname': input_vname.value,
 		'nachname': input_nname.value,
 		'klasse': input_klasse.value,
@@ -26,8 +26,8 @@
 		'input_klassenlehrer': klassenlehrer.value,
 		}
 		
-		var sendeObjektZeitzahl = getTimeInput();
-		dbTransaction(sendeObjektText, sendeObjektZeitzahl);
+		var sendObjektTime = getTimeInput();
+		dbTransaction(sendObjektText, sendObjektTime);
 		
 	};		
 
@@ -102,19 +102,18 @@ open.onupgradeneeded = function() {
     //var index = store.createIndex("NameIndex", ["name.last", "name.first"]);
 };
 
-function dbTransaction(sendeObjektText, sendeObjektZeitzahl) {
+function dbTransaction(sendObjektText, sendObjektTime) {
 
     var db = open.result;
     var tx = db.transaction("MyObjectStore", "readwrite");
     var store = tx.objectStore("MyObjectStore");
 
-    store.put({id: 12345, info:sendeObjektText , timegrid:sendeObjektZeitzahl});
+    store.put({id: 12345, info:sendObjektText , timegrid:sendObjektTime});
     
-    var getJohn = store.get(12345);
+    var stored = store.get(12345);
 
-    getJohn.onsuccess = function() {
-        //console.log(getJohn.result.info.vorname);  // => "John"
-        //console.log(getJohn.result.timegrid.time1);
+    stored.onsuccess = function() {
+
 
     };
 
@@ -144,9 +143,11 @@ function getTime(hour) {
     let x = store.get(12345);
 
     x.onsuccess = function() {
-    	let y = 'time' + (hour - 1);
-    	let z = 'time' + hour;
+    	let a = 'time' + (hour - 1);
+    	let b = 'time' + hour;
+
     };
+
     tx.oncomplete = function() {
     db.close();
     }
@@ -163,6 +164,7 @@ function createInput() {
 	var newInput = document.createElement("input"); 
 	newInput.setAttribute("type", "time");
 	newInput.setAttribute("value", "00:00");
+	newInput.setAttribute("name", "t1");
   	
   	newDiv.appendChild(document.createTextNode(pos + ".Stunde")); 
 	newDiv.appendChild(newInput); 
@@ -183,9 +185,4 @@ function deleteInput() {
 	var timeI = document.getElementById("timeInput");
 	timeI.removeChild(timeI.lastChild);
 	}
-}
-
-function saveCurrentTimeInput(){
-
-
 }

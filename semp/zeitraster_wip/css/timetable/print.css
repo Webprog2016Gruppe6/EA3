@@ -3,7 +3,7 @@
     size: landscape
     }
 
-aside, body nav, header
+aside, body nav, header, footer
     {
     display: none;
     }

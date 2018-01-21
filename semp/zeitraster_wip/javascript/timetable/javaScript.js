@@ -220,12 +220,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 });
 
-function test(){
-    getTime();
-    //createNewRow();
-}
-
-
 var cellNR = 6;
 function createNewRow(){
 

@@ -152,3 +152,26 @@ function saveSubject(){
     }
 
 }
+var cellNR = 8;
+function createNewRow(){
+
+    var c = document.getElementById("days").childElementCount;
+
+    var table = document.getElementById("stundenplaner");
+    var row = table.insertRow(-1);
+
+for (var i = 0; i < c; i++) {
+    let cell1 = row.insertCell(i);
+    cell1.ondrop=new Function('F','droppenInnerTable(event)');
+    cell1.ondragover=new Function('F','droppenErlauben(event)');
+}
+    let cell1 = row.insertCell(0);
+
+    cell1.innerHTML = ++cellNR + '.';
+    alert('create Rows');
+
+}
+function deleteOldRow(){
+document.getElementById("stundenplaner").deleteRow(-1);
+cellNR--; 
+}

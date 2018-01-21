@@ -109,7 +109,7 @@
 		<th></th>
 		<th></th>
 	</tr>
-	<tr>
+	<tr id="days">
 		<td>Stunde</td>
 		<td>Montag</td>
 		<td>Dienstag</td>
@@ -170,7 +170,7 @@
 		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
 		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
 	</tr>
-	<tr>
+	<tr id="template">
 		<td>6.</td>
 		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
 		<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
@@ -216,6 +216,8 @@
         <button onclick="kontaktOpen()">Kontakt</button>
   		<!--Hier wird auf Datenschutzbestimmungen der Webseite verlinkt.-->
         <button onclick="datenschutzOpen()">Datenschutz</button>
+        <button onclick="createNewRow()">Neue Reihe</button>
+        <button onclick="deleteOldRow()">Lösche Reihe</button>
 	</nav>
   </footer>
 </body>

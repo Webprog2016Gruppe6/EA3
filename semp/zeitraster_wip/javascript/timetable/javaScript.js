@@ -10,7 +10,8 @@ function droppenErlauben(event) {
 
 function draggenInnerTable(event) {
     event.dataTransfer.setData("text", event.target.id);
-    event.dataTransfer.effectAllowed ='copy';
+    //event.dataTransfer.effectAllowed ='copy';
+
 
 }
 
@@ -18,57 +19,48 @@ function droppenInnerTable(event)  {
     event.preventDefault();
     var data = event.dataTransfer.getData("text");
     //$('<div>').text(val).appendTo(event.target);
-    event.target.appendChild(document.getElementById(data));
-    event.dataTransfer.dropEffect ='copy';
+   // event.target.appendChild(document.getElementById(data));
+   // event.dataTransfer.dropEffect ='copy';
+   var nodeCopy = document.getElementById(data).cloneNode(true);
+    nodeCopy.id = "newId";
+    event.target.appendChild(nodeCopy);
+   /* if (ev.ctrlKey)
+    {
+        var nodeCopy = document.getElementById(data).cloneNode(true);
+        nodeCopy.id = "newId"; /* We cannot use the same ID
+        ev.target.appendChild(nodeCopy);
+    }
+    else
+        ev.target.appendChild(document.getElementById(data));*/
+
+}
+
+//Werte aus dem Timegrid in die Stundenplaner schreiben
+function writeValue(id,a) {
+    document.getElementById("Stunde1").firstChild.nodeValue = a;
+    document.getElementById("Stunde2").firstChild.nodeValue = a;
+    document.getElementById("Stunde3").firstChild.nodeValue = a;
+    document.getElementById("Stunde4").firstChild.nodeValue = a;
+    document.getElementById("Stunde5").firstChild.nodeValue = a;
+    document.getElementById("Stunde6").firstChild.nodeValue = a;
 }
 
 
-/*Indexed DB*/
 
-
-//  gewährt Interbrowserkompabilität
+        // This works on all devices/browsers
 var indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB || window.shimIndexedDB;
 
-// Öffnen der Datenbank
-var request = indexedDB.open("Stundenplaner");
 
-// Datenbankindex wird erstellt
-request.onupgradeneeded = function() {
-    var database = request.result;
-    var store = database.createObjectStore("MyObjectStore", {keyPath: "id"});
-//    var indexStundenplan = store.createIndex("StundenplanIndex", ["Stundenplanname",
-//        "Faecher", "Tage", "Professoren" ]);
-    /*Es wird ein Index für die einzelnen Stundenpläne angelegt. Pro angelegtem Stundenplan gibt es
-     * den Stundenplanername, die abgespeicherten Fächer und deren Aufteilung auf die Tage, die
-     * abgespeicherten Professoren zu den einzelnen Fächer.*/
+// Open (or create) the database
+var open = indexedDB.open("MyDatabase", 1);
+
+// Create the schema
+open.onupgradeneeded = function() {
+    var db = open.result;
+    var store = db.createObjectStore("MyObjectStore", {keyPath: "id"});
+    var indexStundenplan = store.createIndex("StundenplanIndex", ["Stundenplanname","info","Vorname",
+        "Nachname","Klasse","Schule","Schuljahr","Klassenlehrer"]);
 };
-//Datenbank wird u.a. beschrieben
-request.onsuccess = function() {
-
-    var database = request.result;
-    var transaction = database.transaction("MyObjectStore", "readwrite");
-    var store = transaction.objectStore("MyObjectStore");
-    var indexStundenplan = store.index("StundenplanIndex");
-
-
-    store.put({id: 10, Stundenplanname: "MeinStundenplan", Tage: "Samstag"});
-
-
-    var getStundenplan = store.get(10);
-
-
-    getStundenplan.onsuccess = function () {
-        alert(getStundenplan.result.Tage);
-    };
-
-    // Datenbank wird geschlossen
-    transaction.oncomplete = function () {
-        database.close();
-    };
-}
-
-
-
 /* Generate Matrix */
 
 function generate_matrix(weekmode){
@@ -152,7 +144,89 @@ function saveSubject(){
     }
 
 }
-var cellNR = 8;
+
+
+function getTime() {  
+    var db = open.result;
+    var tx = db.transaction("MyObjectStore", "readwrite");
+    var store = tx.objectStore("MyObjectStore");
+
+    let x = store.get(12345);
+
+    var hourobj;
+    var firstrows = document.getElementsByName('first');
+    x.onsuccess = function() {
+
+        var numberofInput = (Object.keys(x.result.timegrid).length) / 2 ;
+        console.log(numberofInput);
+        if (6 < numberofInput) {
+
+            var z = 0;
+            numberofInput = numberofInput - 6; 
+            console.log(numberofInput);
+            while(numberofInput > z) {
+                createNewRow();
+            z+=2;
+            
+            }    
+
+        }
+
+
+        var i = 0;
+        var j = 0;
+
+        while (i < firstrows.length) {
+
+            let a = 'time' + j;
+            a = x.result.timegrid[a];
+            let b = 'time' + (j+1);
+            b = x.result.timegrid[b];
+            firstrows[i].innerHTML = (i + 1)+".Stunde " + '<br>' + a + " - " + b;
+
+            i++;
+            j+=2;
+        }
+    };
+
+    tx.oncomplete = function() {
+    db.close();
+    }
+}
+
+/*Source: www.w3schools.com */
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+document.addEventListener("DOMContentLoaded", function(event) { 
+        
+        if(getCookie('timegridflag') == 'set') {
+            getTime();
+        }
+
+
+});
+
+function test(){
+    getTime();
+    //createNewRow();
+}
+
+
+var cellNR = 6;
 function createNewRow(){
 
     var c = document.getElementById("days").childElementCount;
@@ -166,12 +240,11 @@ for (var i = 0; i < c; i++) {
     cell1.ondragover=new Function('F','droppenErlauben(event)');
 }
     let cell1 = row.insertCell(0);
-
+    cell1.setAttribute("name", "first");
     cell1.innerHTML = ++cellNR + '.';
-    alert('create Rows');
-
 }
+
 function deleteOldRow(){
-document.getElementById("stundenplaner").deleteRow(-1);
-cellNR--; 
+    document.getElementById("stundenplaner").deleteRow(-1);
+    cellNR--; 
 }

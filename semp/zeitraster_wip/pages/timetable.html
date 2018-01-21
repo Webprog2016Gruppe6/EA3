@@ -1,0 +1,211 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Stundenplaner</title>
+    <!--Bitte mit Chrome testen.-->
+
+    <!-- Site specific CSS -->  
+	<link rel="stylesheet" href="../css/timetable/stylesheetgrundstruktur.css">
+  	<link rel="stylesheet" media="print" href="../../css/print.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!-- Masterlayout CSS -->
+    <link rel="stylesheet" type="text/css" href="../css/masterlayout.css">  
+
+    <!-- Masterfunction Javascript -->
+    <script  type="text/javascript" src="../javascript/masterjs.js"></script> 
+    <!-- Site specific Javascript -->   
+  	<script type="text/javascript" src="../javascript/timetable/javaScript.js"></script>
+  	<!--Icon & Font Library-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+  </head>
+  <body>
+
+		<header>
+			<div class="row">
+				<div class="col-4" style="border-bottom: 1px solid black;">
+				<a class="button-style" href="../index.html">
+					<i class="fa fa-home" aria-hidden="true"></i>
+					Home
+				</a>
+		  		<div class="dropdown">
+			    	<button class="dbutton button-style">Stundenplan erstellen 
+			      	<i class="fa fa-caret-down"></i>
+			    	</button>
+			    	<div class="hidden-menu">
+				      	<a href="#">Name und Zeitraster</a>
+				      	<a href="./stundenplaner.html">Fächer und Positionierung</a>
+				      	<a href="" onclick="window.print()">Drucken</a>
+			    	</div>
+		  		</div> 
+		  		<a class="button-style" href="#news">&Uuml;ber uns</a>
+	  						
+					
+				</div>
+				<div class="col-2">
+					<img class="rightside" src="../media/chronos_logo.png" alt="logo">	
+				</div>
+			</div>
+
+		</header>
+
+<main>
+	<div class="row">
+		
+
+	<aside class="col-1">
+		<!--hier kommt die Seitenleiste mit den Fächern-->
+		<p></p>
+		<div id="fach1" draggable="true" class="faecher"
+			 ondragstart="draggenInnerTable(event)">Latein</div>
+		<p></p>
+		<form>
+		<input id="fach2" draggable="true" class="faecher" placeholder="Musik"
+				   ondragstart="draggenInnerTable(event)"/>
+		<p></p>
+		<input id="fach3" draggable="true" class="faecher" placeholder="Fach eingeben"
+			   ondragstart="draggenInnerTable(event)"/>
+		<p></p>
+		<input id="fach4" draggable="true" class="faecher" placeholder="Fach eingeben"
+			   ondragstart="draggenInnerTable(event)"/>
+		<p></p>
+		<input id="fach5" draggable="true" class="faecher" placeholder="Fach eingeben"
+			   ondragstart="draggenInnerTable(event)"/>
+		<p></p>
+		<input id="fach6" draggable="true" class="faecher" placeholder="Fach eingeben"
+			   ondragstart="draggenInnerTable(event)"/>
+		<p></p>
+		<input id="fach7" draggable="true" class="faecher" placeholder="Fach eingeben"
+			   ondragstart="draggenInnerTable(event)"/>
+		<p></p>
+		<input id="fach 8" draggable="true" class="faecher" placeholder="Fach eingeben"
+			   ondragstart="draggenInnerTable(event)"/>
+		<p></p>
+		<input id="fach 9" draggable="true" class="faecher" placeholder="Fach eingeben"
+			   ondragstart="draggenInnerTable(event)"/>
+		</form>
+		<button class="printbutton" id="fertig" onclick="window.print()"><p>Drucken</p></button>
+	</aside>
+
+
+
+	<table id="stundenplaner" class="col-5">
+		<tr>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th>Stundenplaner</th>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
+		<tr id="days">
+			<td>Stunde</td>
+			<td>Montag</td>
+			<td>Dienstag</td>
+			<td>Mittwoch</td>
+			<td>Donnerstag</td>
+			<td>Freitag</td>
+			<td>Samstag</td>
+			<td>Sonntag</td>
+		</tr>
+		<tr>
+			<td id="Stunde1" name="first">1.</td>
+			<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+			<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+			<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+			<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+			<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+			<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+			<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+
+		</tr>
+		<tr>
+			<td id="Stunde2" name="first">2.</td>
+			<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+			<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+			<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+			<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+			<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+			<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+			<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+		</tr>
+		<tr>
+			<td id="Stunde3" name="first">3.</td>
+			<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+			<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+			<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+			<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+			<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+			<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+			<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+		</tr>
+		<tr>
+			<td id="Stunde4" name="first">4.</td>
+			<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+			<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+			<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+			<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+			<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+			<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+			<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+		</tr>
+		<tr>
+			<td id="Stunde5" name="first">5.</td>
+			<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+			<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+			<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+			<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+			<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+			<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+			<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+		</tr>
+		<tr>
+			<td id="Stunde6" name="first">6.</td>
+			<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+			<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+			<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+			<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+			<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+			<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+			<td ondrop="droppenInnerTable(event)" ondragover="droppenErlauben(event)"></td>
+		</tr>
+
+	</table>
+	<button onclick="test()">Teste Mich</button>
+</div>
+</main>
+		<footer >
+
+        	<div class="row">
+	    		<div class="col-4">
+	    			<h4>Nutzungsbedingungen</h4>
+	    			Wenn sie diese Webseite benutzen sind sie an die folgenden Nutzungsbedingungen gebunden. Sollten sie mit diesen nicht einverstanden sein, bitten wir diese Webseite und den damit bereitgestellten Service nicht zu nutzen. Nimmt keinerlei Besitzanspruch bzw. Haftung für die im Rahmen der Webseiten erstellten Stundenpläne. Diese Webseite verwendet Cookies um dem Benutzer eine besseren Service zu garantieren.  <br>
+
+				</div>
+
+	    		<div class="col-2">
+	    			<h4>Datenschutzerklärung</h4>
+	    			Jegliche auf der Website erhobene Daten, dienen nur der Notwendigkeit zur Erstellung der Stundenpläne. Persöhnliche Daten werden nur flüchtig erhoben. Es erfolgt keine permanente Speicherung der Daten, weder zur informativen noch zu kommerziellen Zwecken.
+
+
+				</div>				
+			</div>			
+
+        	<div class="row">
+				<div class="col-6">
+	        	
+	        		<hr>
+
+	        		<i class="fa fa-copyright" aria-hidden="true"></i> 2017-2018 Chronos Time Management Solutions, Alle Rechte vorbehalten
+	        		<a class="rightside" style="color: white" href="pages/impressum.html">Impressum</a>
+				</div>
+			</div>
+        </footer>
+	</body>
+</html>

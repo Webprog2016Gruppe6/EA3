@@ -2,7 +2,6 @@
 function sendeFkt() {
 	sendForm();
 	setCookie('timegridflag','set', 30); 	
-
 }
 		
 		
@@ -35,6 +34,7 @@ var helpNode
 //Onload, save the starting Formlayout
 
 document.addEventListener("DOMContentLoaded", function(event) { 
+	
 	helpNode = document.getElementById('timeInput');
 	helpNode = helpNode.cloneNode(true);
 
@@ -86,9 +86,8 @@ function changeTime() {
 					
 }
 
-		// This works on all devices/browsers, and uses IndexedDBShim as a final fallback 
+// This works on all devices/browsers, and uses IndexedDBShim as a final fallback 
 var indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB || window.shimIndexedDB;
-
 
 // Open (or create) the database
 var open = indexedDB.open("MyDatabase", 1);
@@ -97,7 +96,6 @@ var open = indexedDB.open("MyDatabase", 1);
 open.onupgradeneeded = function() {
     var db = open.result;
     var store = db.createObjectStore("MyObjectStore", {keyPath: "id"});
-    //var index = store.createIndex("NameIndex", ["name.last", "name.first"]);
 };
 
 function dbTransaction(sendObjektText, sendObjektTime) {
@@ -111,6 +109,7 @@ function dbTransaction(sendObjektText, sendObjektTime) {
     var stored = store.get(12345);
 
     stored.onsuccess = function() {
+    	window.location.href = "timetable.html";
     	return;
 
     };
@@ -133,42 +132,6 @@ function getTimeInput() {
     return arrayTime;
 }
 
-function getTime() {  
-    var db = open.result;
-    var tx = db.transaction("MyObjectStore", "readwrite");
-    var store = tx.objectStore("MyObjectStore");
-
-    let x = store.get(12345);
-
-	var hourobj;
-	var firstrows = document.getElementsByName('first');
-    x.onsuccess = function() {
-
-    	var i = 0;
-    	var j = 0;
-
-		while (i < firstrows.length) {
-
-			let a = 'time' + j;
-	    	a = x.result.timegrid[a];
-	    	let b = 'time' + (j+1);
-			b = x.result.timegrid[b];
-	    	firstrows[i].innerHTML = (i + 1)+".Stunde " + '<br>' + a + " - " + b;
-
-		    i++;
-		    j+=2;
-		}
-
-
-    	
-
-    };
-
-    tx.oncomplete = function() {
-    db.close();
-    }
-    return hourobj;
-}
 
 const startingHour = 6;
 function createInput() {  
@@ -212,28 +175,3 @@ function setCookie(cname,cvalue,exdays) {
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
 
-/*Source: www.w3schools.com */
-function getCookie(cname) {
-    var name = cname + "=";
-    var decodedCookie = decodeURIComponent(document.cookie);
-    var ca = decodedCookie.split(';');
-    for(var i = 0; i < ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0) == ' ') {
-            c = c.substring(1);
-        }
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
-        }
-    }
-    return "";
-}
-
-function testcookie(){
-	getTime();
-
-}
-
-function test(){
-	sendForm();
-}

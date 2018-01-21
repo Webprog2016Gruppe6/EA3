@@ -24,15 +24,15 @@
 		'schule': input_schule.value,
 		'schuljahr': input_schuljahr.value,
 		'input_klassenlehrer': klassenlehrer.value,
-		}
+		};
 		
 		var sendObjektTime = getTimeInput();
 		dbTransaction(sendObjektText, sendObjektTime);
 		
-	};		
+	}
 
 
-		var helpNode
+		var helpNode;
 		//Onload, save the starting Formlayout
 
 		document.addEventListener("DOMContentLoaded", function(event) { 
@@ -43,7 +43,7 @@
 
 		function changeTime() {
 
-		let inputControl = document.getElementById('inputControl');	
+		var inputControl = document.getElementById('inputControl');
 		
 		//Standard Option, Reset all Field to old, Disable Input
 		if(document.getElementById('standardTime').checked) {
@@ -61,8 +61,8 @@
 
 		}	
 
-		let y = document.getElementsByName("t1");
-		let i;	
+		var y = document.getElementsByName("t1");
+		var i;
 		for (i = 0; i < y.length; i++) {
 
 			y[i].value = y[i].defaultValue;
@@ -100,7 +100,10 @@ open.onupgradeneeded = function() {
     var db = open.result;
     var store = db.createObjectStore("MyObjectStore", {keyPath: "id"});
     //var index = store.createIndex("NameIndex", ["name.last", "name.first"]);
+	var indexStundenplan = store.createIndex("StundenplanIndex", ["Stundenplanname","info","Vorname",
+		"Nachname","Klasse","Schule","Schuljahr","Klassenlehrer"]);
 };
+		//alert("1");
 
 function dbTransaction(sendObjektText, sendObjektTime) {
 
@@ -112,8 +115,19 @@ function dbTransaction(sendObjektText, sendObjektTime) {
     
     var stored = store.get(12345);
 
-    stored.onsuccess = function() {
 
+    stored.onsuccess = function() {
+		//var getStundenplan = store.get(10);
+		indexStundenplan = stored.get("StundenplanIndex");
+		indexStundenplan.onsuccess = function (ev) {
+			alert(indexStundenplan.result.info);
+			alert("Daten wurden eingetragen!");
+		};
+
+		getStundenplan.onsuccess = function () {
+			alert(getStundenplan.result.timegrid);
+
+		};
 
     };
 
@@ -140,11 +154,11 @@ function getTime(hour) {
     var tx = db.transaction("MyObjectStore", "readwrite");
     var store = tx.objectStore("MyObjectStore");
 
-    let x = store.get(12345);
+    var x = store.get(12345);
 
     x.onsuccess = function() {
-    	let a = 'time' + (hour - 1);
-    	let b = 'time' + hour;
+    	var a = 'time' + (hour - 1);
+    	var b = 'time' + hour;
 
     };
 
@@ -156,7 +170,7 @@ function getTime(hour) {
 const startingHour = 6;
 function createInput() {  
 
-	let pos = document.getElementsByName('rowWrap').length  + 1;
+	var pos = document.getElementsByName('rowWrap').length  + 1;
 
 	var newDiv = document.createElement("div"); 
 	newDiv.setAttribute("name", "rowWrap");
@@ -179,7 +193,7 @@ function createInput() {
 }
 
 function deleteInput() {
-	let pos = document.getElementsByName('rowWrap').length + 1;
+	var pos = document.getElementsByName('rowWrap').length + 1;
 
 	if (pos > startingHour) {
 	var timeI = document.getElementById("timeInput");

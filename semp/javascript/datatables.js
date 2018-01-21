@@ -8,7 +8,14 @@ $(document).ready(function() {
             },
             {
                 "targets": [ 7 ],
-                "visible": false, //Spalte Sonntag wird ausgeblendet
+                "visible": true, //Spalte Sonntag wird ausgeblendet
+                "searchable": false
+            }
+        ],
+        "rowDefs":[
+            {
+                "targets": [6],
+                "visible": true,
                 "searchable": false
             }
         ],
